@@ -1,8 +1,11 @@
 HELP.md
 target/
+.m2/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+spring-boot.out.log
+spring-boot.err.log
 
 ### STS ###
 .apt_generated

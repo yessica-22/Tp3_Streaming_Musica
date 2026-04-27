@@ -1,5 +1,6 @@
 package unlar.edu.ar.tp3.service;
 
+import org.springframework.stereotype.Service;
 import unlar.edu.ar.tp3.model.Cancion;
 import unlar.edu.ar.tp3.model.Genero;
 
@@ -13,6 +14,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class CatalogoStreamingService {
     private final List<Cancion> catalogo = new ArrayList<>();
 
@@ -22,6 +24,27 @@ public class CatalogoStreamingService {
 
     public List<Cancion> listarCatalogo() {
         return Collections.unmodifiableList(catalogo);
+    }
+
+    public Optional<Cancion> buscarPorId(String id) {
+        return catalogo.stream()
+                .filter(c -> c.getId().equals(id))
+                .findFirst();
+    }
+
+    public List<Cancion> buscarPorTituloYArtista(String titulo, String artista) {
+        return catalogo.stream()
+                .filter(c -> titulo == null || titulo.isBlank() || c.getTitulo().toLowerCase().contains(titulo.toLowerCase()))
+                .filter(c -> artista == null || artista.isBlank() || c.getArtista().toLowerCase().contains(artista.toLowerCase()))
+                .toList();
+    }
+
+    public Optional<Cancion> incrementarReproducciones(String id) {
+        return buscarPorId(id)
+                .map(cancion -> {
+                    cancion.incrementarReproducciones();
+                    return cancion;
+                });
     }
 
     // 2.2 - Filtrado compuesto por genero, artista, rango de anios y rating minimo.
@@ -117,6 +140,9 @@ public class CatalogoStreamingService {
         service.agregarCancion(new Cancion("Take Five", "Dave Brubeck", "Time Out", Genero.JAZZ, 324, 2200, 4.7, LocalDate.of(1959, 7, 1)));
         service.agregarCancion(new Cancion("Billie Jean", "Michael Jackson", "Thriller", Genero.POP, 294, 9200, 4.9, LocalDate.of(1983, 1, 2)));
         service.agregarCancion(new Cancion("Clair de Lune", "Debussy", "Suite bergamasque", Genero.CLASICA, 300, 1300, 4.6, LocalDate.of(1905, 1, 1)));
+        service.agregarCancion(new Cancion("Bad Guy", "Billie Eilish", "When We All Fall Asleep, Where Do We Go?", Genero.POP, 194, 8100, 4.5, LocalDate.of(2019, 3, 29)));
+        service.agregarCancion(new Cancion("Around the World", "Daft Punk", "Homework", Genero.ELECTRONICA, 431, 3900, 4.4, LocalDate.of(1997, 3, 17)));
+        service.agregarCancion(new Cancion("Bohemian Rhapsody", "Queen", "A Night at the Opera", Genero.ROCK, 354, 15000, 5.0, LocalDate.of(1975, 10, 31)));
         return service;
     }
 }
