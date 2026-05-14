@@ -29,13 +29,13 @@ class CatalogoStreamingServiceTest {
     void filtrarCanciones_compuestoFunciona() {
         List<Cancion> resultado = service.filtrarCanciones(Genero.ROCK, "artista 1", 2010, 2019, 4.5);
         assertEquals(1, resultado.size());
-        assertEquals("B", resultado.getFirst().getTitulo());
+        assertEquals("B", resultado.get(0).getTitulo());
     }
 
     @Test
     void top10MasReproducidas_ordenCorrecto() {
         List<Cancion> top = service.top10MasReproducidas();
-        assertEquals("C", top.getFirst().getTitulo());
+        assertEquals("C", top.get(0).getTitulo());
         assertEquals("B", top.get(1).getTitulo());
     }
 

@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "aa152f36-5d2f-4a57-b087-0b1a03e670fb",
+		"name": "Streaming_Musica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Listar todas las canciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/canciones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"canciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Búsqueda Binaria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/canciones/buscar-binaria?titulo=Bohemian Rhapsody",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"canciones",
+						"buscar-binaria"
+					],
+					"query": [
+						{
+							"key": "titulo",
+							"value": "Bohemian Rhapsody"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Recomendación por Género (Necesita ID)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/canciones/{ID_AQUI}/recomendar?estrategia=genero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"canciones",
+						"{ID_AQUI}",
+						"recomendar"
+					],
+					"query": [
+						{
+							"key": "estrategia",
+							"value": "genero"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Simular Concurrencia (Necesita ID)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/canciones/{ID_AQUI}/reproducir-concurrente?usuarios=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"canciones",
+						"{ID_AQUI}",
+						"reproducir-concurrente"
+					],
+					"query": [
+						{
+							"key": "usuarios",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Playlist Automática (10 min)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/canciones/playlist-automatica?minutos=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"canciones",
+						"playlist-automatica"
+					],
+					"query": [
+						{
+							"key": "minutos",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
