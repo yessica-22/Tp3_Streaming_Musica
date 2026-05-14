@@ -1,0 +1,19 @@
+info:
+  name: 4. Simular Concurrencia (Necesita ID)
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: http://localhost:9090/api/canciones/89e12fbd-494a-4da5-8c96-09dc41951ee5/reproducir-concurrente?usuarios=10
+  params:
+    - name: usuarios
+      value: "10"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

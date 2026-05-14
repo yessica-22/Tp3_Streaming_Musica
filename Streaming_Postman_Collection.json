@@ -11,12 +11,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/canciones",
+					"raw": "http://localhost:9090/api/canciones",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"api",
 						"canciones"
@@ -31,12 +31,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/canciones/buscar-binaria?titulo=Bohemian Rhapsody",
+					"raw": "http://localhost:9090/api/canciones/buscar-binaria?titulo=Bohemian Rhapsody",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"api",
 						"canciones",
@@ -58,16 +58,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/canciones/{ID_AQUI}/recomendar?estrategia=genero",
+					"raw": "http://localhost:9090/api/canciones/b5a8f438-cc20-4863-bab2-c2c7e0f13e00/recomendar?estrategia=genero",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"api",
 						"canciones",
-						"{ID_AQUI}",
+						"b5a8f438-cc20-4863-bab2-c2c7e0f13e00",
 						"recomendar"
 					],
 					"query": [
@@ -86,16 +86,16 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/canciones/{ID_AQUI}/reproducir-concurrente?usuarios=10",
+					"raw": "http://localhost:9090/api/canciones/9098605b-6018-4293-b2d7-eafd17952181/reproducir-concurrente?usuarios=10",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"api",
 						"canciones",
-						"{ID_AQUI}",
+						"9098605b-6018-4293-b2d7-eafd17952181",
 						"reproducir-concurrente"
 					],
 					"query": [
@@ -109,17 +109,17 @@
 			"response": []
 		},
 		{
-			"name": "5. Playlist Automática (10 min)",
+			"name": "5. Playlist Automática (5 min)",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/canciones/playlist-automatica?minutos=10",
+					"raw": "http://localhost:9090/api/canciones/playlist-automatica?minutos=5",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"api",
 						"canciones",
@@ -128,7 +128,7 @@
 					"query": [
 						{
 							"key": "minutos",
-							"value": "10"
+							"value": "5"
 						}
 					]
 				}

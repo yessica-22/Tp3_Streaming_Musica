@@ -1,0 +1,19 @@
+info:
+  name: 5. Playlist Automática (10 min)
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: http://localhost:9090/api/canciones/playlist-automatica?minutos=5
+  params:
+    - name: minutos
+      value: "5"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
